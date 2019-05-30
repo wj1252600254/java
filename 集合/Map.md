@@ -125,7 +125,7 @@ final Entry<K,V> getEntry(Object key) {
 为链表则需要遍历直到 key 及 hashcode 相等时候就返回值。
 啥都没取到就直接返回 null 。
 ```
-[源码分析](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)
+[源码分析](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)  
 ##HashMap 多线程操作导致死循环问题
 
 在多线程下，进行 put 操作会导致 HashMap 死循环，原因在于 HashMap 的扩容 resize()方法。由于扩容是新建一个数组，复制原数据到数组。由于数组下标挂有链表，所以需要复制链表，但是多线程操作有可能导致环形链表。
